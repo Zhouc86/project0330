@@ -1,0 +1,45 @@
+{
+    "serial":"65F7171A-5585-46C7-A9D6-967ABA9EB223",
+    "type":"car",
+    "host_port":20001,
+    "can_ip":"192.168.1.70",
+    "can_port":20001,
+    "ip":"58.34.98.13",
+    "lidar_port":20025,
+    "car_id":["0x185","0x285","0x385","0x485","0x189","0x289","0x389"],
+    "emergency":["0x181","0x281","0x381","0x481","0x70B"],
+    "name" :"Car Name",
+    "camerainfo":
+    [
+        {
+            "index":2,
+            "label":"front",
+            "uri":"rtsp://admin:Aa123456@192.168.1.64",
+            "res":"hd1080"
+           
+        },
+        {
+            "index":3,
+            "label":"left",
+            "uri":"rtsp://admin:Aa123456@192.168.1.66",
+            "res":"hd720"
+           
+        },
+	    {
+            "index":4,
+            "label":"right",
+            "uri":"rtsp://admin:Aa123456@192.168.1.67",
+            "res":"hd720"
+           
+        },
+        {
+            "index":5,
+            "label":"back",
+            "uri":"rtsp://admin:Aa123456@192.168.1.65",
+            "res":"hd1080"
+           
+        }
+
+    ]
+    
+}

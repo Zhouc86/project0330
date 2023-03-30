@@ -1,0 +1,43 @@
+{
+    "serial":"E537DDFB-6E3E-4E1A-AD18-AC21393BE300",
+    "ip":"10.99.130.204",
+    "type":"car",
+    "imu_ip":"192.168.0.111",
+    "imu_port":20001,
+    "imu_host":20011,
+    "radar_ip":"192.168.0.111",
+    "radar_port":20002,
+    "radar_host":20012,
+    "robot_ip":"192.168.0.202",
+    "robot_port":8080,
+    
+    "name" :"Car Name",
+    
+    "camerainfo":
+    [
+        {
+            "label":"front",
+            "index":0
+        },
+        {
+            "label":"back",
+            "index":1
+        },
+      	{
+            "label":"left",
+            "index":2
+        },
+        {
+            "label":"right",
+            "index":3
+        },
+        {
+            "label":"dash",
+            "index":4
+        }
+        
+
+
+    ]
+    
+}

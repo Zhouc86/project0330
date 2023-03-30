@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>components/MainWindow.qml</file>
+        <file>components/PanelWindow.qml</file>
+        <file>components/CButton.qml</file>
+        <file>components/font/Alibaba-PuHuiTi-Bold.ttf</file>
+        <file>components/font/fontawesome-webfont.ttf</file>
+    	<file>components/font/DS-DIGIB.ttf</file>
+        <file>components/backend.js</file>
+        <file>images/bg.png</file>
+        <file>images/bg4k.png</file>
+        <file>images/login_bg.png</file>
+        <file>images/banner.png</file>
+        <file>components/SplashScreen.qml</file>
+        <file>images/border_l.png</file>
+        <file>images/border_r.png</file>
+        <file>components/LoginPage.qml</file>
+        <file>components/CarPage.qml</file>
+        <file>images/car1.png</file>
+        <file>images/car2.png</file>
+        <file>images/car3.png</file>
+        <file>images/radar_car.png</file>
+        <file>images/bottom_green.png</file>
+        <file>images/bottom_yellow.png</file>
+        <file>images/bottom_red.png</file>
+        <file>images/right_f_green.png</file>
+        <file>images/right_f_yellow.png</file>
+        <file>images/right_f_red.png</file>
+        <file>images/right_r_green.png</file>
+        <file>images/right_r_yellow.png</file>
+        <file>images/right_r_red.png</file>
+        <file>images/left_f_green.png</file>
+        <file>images/left_f_yellow.png</file>
+        <file>images/left_f_red.png</file>
+        <file>images/left_r_green.png</file>
+        <file>images/left_r_yellow.png</file>
+        <file>images/left_r_red.png</file>
+		<file>images/rear_view.png</file>
+		<file>images/side_view.png</file>
+		<file>images/caution.png</file>
+        <file>sound/beep-1.wav</file>
+        <file>sound/beep-2.wav</file>
+        <file>components/DetailPage.qml</file>
+    </qresource>
+</RCC>

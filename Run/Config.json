@@ -1,0 +1,14 @@
+{
+	"account" : "ego",
+	"password" : "123456",
+	"can_ip" : "192.168.15.160",
+	"can_port" : 20001,
+	"host_port" : 20319,
+ 	"server" : "10.99.130.204",
+	"host_in" : "192.168.15.150",
+    "motion_ip":"192.168.15.201",
+	"motion_port":7408,
+	"name" : "zhanhc",
+	"url" : "http://58.34.98.13:8081/static/update/dpc/",
+	"version" : 1
+}

@@ -1,0 +1,337 @@
+syntax="proto3";
+package RemoNet;
+enum CSMessage
+{
+
+  CS_NONE=0;
+  CS_Sign=2000;
+  CS_Req=2001;
+  CS_Rep=2002;
+  CS_CancelReq=2003;
+  CS_Offer=2004;
+  CS_Answer=2005;
+  CS_Candidate=2006;
+  CS_Leave=2007;
+  CS_KeepAlive=2008;
+  CS_Add=2009;
+  CS_Robot=2010;
+  CS_CloseVideo=2011;
+};
+enum SCMessage
+{
+  SC_NONE=0;
+  SC_Sign=4000;
+  SC_Req=4001;
+
+  SC_Rep=4002;
+  SC_Cancel=4003;
+  SC_Offer=4004;
+  SC_Answer=4005;
+  SC_Candidate=4006;
+  SC_Add =4007; 
+  SC_Robot=4008; 
+  SC_NotifyReq=4009;
+  SC_NotifyRep=4010;
+  SC_NotifyAnswer=4011;
+  SC_NotifyOffer=4012;
+  SC_NotifyCandidate=4013;
+  SC_NotifyLeave=4014;
+  SC_NotifyCancel=4015;
+  SC_NotifyAdd=4016;
+  SC_NotifyDel=4017;
+  SC_NotifyCloseVideo=4018;
+  SC_KickOff=4019;
+  
+};
+enum CCMessage
+{
+   CC_None=0;
+   CC_Text=8000;
+   CC_CAN=8001;
+   CC_IMU=8002;
+   CC_ASKDATACHANNEL=8003;
+   CC_Manipulation=8004;
+   CC_Radar=8005;
+   CC_Switch=8006;
+   CC_Ping=8007;
+   CC_SensorStop=8008;
+   CC_StopACK=8009;
+   CC_LIDARDATA=8010;
+  // CC_RobotStatus=8011;
+   CC_RobotAnalog=8012;
+   CC_BootReq=8013;
+   CC_StartupReq=8014;
+   CC_BootRep=8015;
+   CC_StartupRep=8016;
+ //  CC_FrontLight=8017;
+ //  CC_Wiper=8018;
+ //  CC_BackLight=8019;
+
+
+};
+enum VideoDesc
+{
+	OK=0;
+	Busy=1;
+	Reject=2;
+	NoFound=3;
+	IsVideoing=4;
+
+};
+
+
+ 
+message CSAdd
+{
+   string serial=1;
+   int32  type=2;
+   string name=3;
+ 
+};
+message SCAdd
+{
+  bool  ret=1;
+  int32 uid=2;
+  int32 cid=3;
+  string name=4;
+};
+message SCKickOff
+{
+};
+message Robot
+{
+enum RobotState
+{
+   Offline=0;
+   Online=1;
+   Busy=2;
+};
+   int32 rid=1;
+   string name=2;
+   int32  type=3;
+   RobotState state=4;
+  
+};
+message CSRobot
+{
+};
+message SCRobot
+{
+ repeated Robot robot=1;
+};
+
+message CSSign
+{
+  string account=1;
+  string password=2;
+ 
+  
+};
+message SCSign
+{
+  bool  ret=1;
+  int32 uid=2;
+  int32 cid=3;
+  string name=4;
+  
+};
+ 
+
+message CSReq
+{
+   int32 peer=1;
+   
+   int32 index=2;
+   int32 egotype=3;
+  
+};
+message SCReq
+{
+    VideoDesc desc=1;
+    int32 peer=2;
+    int32 egotype=3;
+   
+};
+message CSRep
+{
+ 
+   VideoDesc desc=1;
+   int32 peer=2;
+   int32 index=3;
+    int32 egotype=4;
+};
+message SCRep
+{
+  
+   VideoDesc desc=1;
+     int32 index=2;
+	 int32 egotype=3;
+   int32 peer=4;
+   
+};
+
+message Offer
+{
+  int32 index=1;
+  int32 peer=2;
+  string type=3;
+  string sdp=4;
+  
+};
+
+message Answer
+{
+  int32 index=1;
+  int32 peer=2;
+  string type=3;
+  string sdp=4;
+  
+};
+
+message Candidate
+{
+   int32 index=1;
+   int32 peer=2;
+   string type=3;
+   string candidate=4;
+   int32 sdpMLineIndex =5;
+   string sdpMid =6;
+   int32 egotype=7;
+};
+message Leave
+{
+   int32 peer=1;
+   int32 egotype=2;
+};
+ message Close
+{
+int32 peer=1;
+int32 egotype=2;
+int32 index=3;
+};
+ 
+message TestTextReq
+{
+  string text=1;
+};
+message CanMessage
+{
+   
+   int32 head=1;
+   int32 canid=2;
+   bytes data=3;
+};
+message CCCanMesage
+{
+   bool islidar=1;
+   repeated CanMessage message=2;
+};
+message Wiper
+{
+  bool ret=1;
+};
+message FrontLight
+{
+  bool ret=1;
+};
+message BackLight
+{
+  bool ret=1;
+};
+message CCAskDataChannel
+{
+};
+message IMuMessage
+{
+
+   float rx=1; 
+   float ry=2;
+  // float rz=3;
+};
+message CCPing
+{
+  int64 tick=1;
+};
+message CCRadarMessage
+{
+   int32 radar0=1;
+   int32 radar1=2;
+   int32 radar2=3;
+   int32 radar3=4;
+   int32 radar4=5;
+   int32 radar5=6;
+};
+enum Gears
+{
+   None=0;
+   N=1;
+   D=2;
+   R=3;
+};
+message CCRobotAnalog
+{
+  int32  steer=1;
+  int32  arm=2;  //举升臂
+  int32  bucket=3; //翻斗
+  int32  throttle=4; //油门
+  int32  brake=5;  //刹车
+ // bool   bootstrap=6; //钥匙一档上电
+ // bool   startup=7;   //钥匙二档启动
+  bool   emergency=8; //急停
+  bool   resume=9;// 急停反转
+  Gears  gears=10;
+  bool   frontlight=11;
+  bool   backlight=12;
+  bool   wipe=13;
+};
+message CCBootStrapReq
+{
+
+}
+message CCBooStrapRep
+{
+    bool ret=1;
+}
+message CCStartupReq
+{
+    
+}
+message CCStartupRep
+{
+   bool ret=1;
+}
+message CCSwitch
+{
+   bool front=1;
+};
+message LidarPoint
+{
+ optional double timestamp = 1; 
+ optional uint32 seq = 2;
+ optional string frame_id = 3;
+ optional uint32 height=4;
+ optional uint32 width=5;
+ optional bool is_dense=6;
+ optional bool is_left=7;
+ repeated float data = 8;
+};
+message SensorStop
+{
+};
+message StopAck
+{
+};
+message CCManipulation
+{
+  bytes sensor=1;
+  bytes  car=2;
+};
+message SCAddRobot
+{
+   Robot robot=1;
+};
+message SCDelRobot
+{
+   int32 peer=1;
+   int32 egotype=2;
+};
